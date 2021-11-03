@@ -1,0 +1,21 @@
+Modern Web Browsers and the JavaScript Engine
+
+
+In order run JavaScript code, the browsers need to have a JavaScript engine to compile our code and run it. 
+Every browser has its own JavaScript engine for example Firefox use Spider Monkey and chrome is using v8 engine. 
+JavaScript engine works in collaboration with rendering engine which renders our html and CSS and make DOM nodes of it which we can manipulate with JavaScript.
+
+JavaScript engines take our code parse it and makes an abstract tree out of it. 
+During the parsing part our code goes through some transformations.
+ Then it sends this code to the interpreter which interprets the code to bytecode which is then passed to the optimization compiler.
+  The optimization compiler optimizes the code and eventually convert it to machine code.
+
+To make it run faster, the bytecode can be sent to the optimizing compiler along with profiling data. 
+The optimizing compiler makes certain assumptions based on the profiling data it has, and then produces highly optimized machine code.
+ If at some point the assumption turns out to be wrong the optimizing compiler deoptimizes the code back.
+
+JavaScript engine stores objects and array in a dictionary format mapping the labels/variables/array indices to the properties. 
+Like value, writable, enumerable, and configurable while for array it keeps an additional attribute which is the length of the array, and it keeps changing it based on additions or removals. 
+It is non-enumerable and non-configurable.
+
+
