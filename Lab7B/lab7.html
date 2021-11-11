@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="EmployeList.css" />
+</head>
+
+<body>
+    <div class="employee-list-wrapper">
+        <div class="emp-list-tile-wrapper">
+            <h1 id="emp-list-title">Employee List</h1>
+        </div>
+
+        <div id="emp-list">
+            <div class="emp">
+                <div class="emp-img-wrapper">
+                    <img src="imges/images-3.jpeg" width="100px" />
+                </div>
+                <div class="emp-info">
+                    <h2 class="emp-name">DARREN GREGORY</h2>
+                    <p class="emp-phone">Phone: 0764-137-173</p>
+                    <p class="emp-email">darren.gregory@example.com</p>
+                </div>
+            </div>
+
+            <div class="emp">
+                <div class="emp-img-wrapper">
+                    <img src="imges/images-4.jpeg" width="100px" />
+                </div>
+                <div class="emp-info">
+                    <h2 class="emp-name">SOPHIE BRAR</h2>
+                    <p class="emp-phone">Phone:960-828-233</p>
+                    <p class="emp-email">sophie.brar@example.com</p>
+                </div>
+            </div>
+
+            <div class="emp">
+                <div class="emp-img-wrapper">
+                    <img src="imges/images-5.jpeg" width="100px" />
+                </div>
+                <div class="emp-info">
+                    <h2 class="emp-name">AUBREE COLLINS</h2>
+                    <p class="emp-phone">Phone: 041-877-758</p>
+                    <p class="emp-email">aubree.collins</p>
+                </div>
+            </div>
+
+            <div class="emp">
+                <div class="emp-img-wrapper">
+                    <img src="imges/images-6.jpeg" width="100px" />
+                </div>
+                <div class="emp-info">
+                    <h2 class="emp-name">Samuel ABRAH</h2>
+                    <p class="emp-phone">Phone: 784-237-6892</p>
+                    <p class="emp-email">samiAbr.gmail.com</p>
+                </div>
+            </div>
+
+            <div class="emp">
+                <div class="emp-img-wrapper">
+                    <img src="imges/images-7.jpeg" width="100px" />
+                </div>
+                <div class="emp-info">
+                    <h2 class="emp-name">CORY GARZA</h2>
+                    <p class="emp-phone">Phone:079-670-0272</p>
+                    <p class="emp-email">Email: dummy@gmail.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="emp-list-footer">
+            <button id="refresh-btn">Refresh</button>
+        </div>
+    </div>
+
+    <script>
+        document
+            .getElementById("refresh-btn")
+            .addEventListener("click", function () {
+                fetch("https://randomuser.me/api/?results=5", {
+                    method: "GET",
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        const results = data.results;
+                        console.log(results);
+                        let html = "";
+                        for (let emp of results) {
+                            html += '<div class="emp">';
+                            html += '<div class="emp-img-wrapper">';
+                            html += '<img src="' + emp.picture.large + '" width="100px" />';
+                            html += " </div>";
+                            html += '<div class="emp-info">';
+                            html +=
+                                '<h2 class="emp-name">' +
+                                emp.name.title +
+                                ". " +
+                                emp.name.first +
+                                " " +
+                                emp.name.last +
+                                "</h2>";
+                            html += '<p class="emp-phone">Phone: ' + emp.cell + "</p>";
+                            html += '<p class="emp-email">Email: ' + emp.email + "</p>";
+                            html += "</div>";
+                            html += "</div>";
+                        }
+
+                        document.getElementById("emp-list").innerHTML = html;
+                        //$("#emp-list").html();
+                    });
+            });
+    </script>
+</body>
+
+</html>

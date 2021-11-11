@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+}
+
+.employee-list-wrapper {
+    width: 40%;
+    margin: 0 auto;
+}
+
+.employee-list-wrapper > div {
+    border-bottom: 1px solid #aeaeae;
+}
+
+.emp-list-tile-wrapper {
+    padding: 15px;
+    background-color: antiquewhite;
+    text-align: center;
+}
+
+.emp {
+    padding: 15px;
+    display: flex;
+}
+
+.emp-img-wrapper {
+    width: 25%;
+}
+.emp-img-wrapper > img {
+    width: 175px;
+}
+.emp-info {
+    width: 74%;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2.emp-name {
+    font-size: 20px;
+}
+
+.employee-list-wrapper .emp-list-tile-wrapper,
+.employee-list-wrapper #emp-list > div,
+.employee-list-wrapper .emp-list-footer {
+    border-bottom: 1px solid #aeaeae;
+    text-align: center;
+    padding: 15px;
+}
+
+.emp-list-footer button {
+    background-color: #08c508;
+    padding: 15px 30px;
+    border-radius: 10px;
+    border: 1px solid #aeaeae;
+    color: white;
+    font-size: 20px;
+}
