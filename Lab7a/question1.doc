@@ -1,0 +1,48 @@
+Lab 7a – Basic Web Development Techniques and Concepts
+For this Lab Assignment, answer the following questions and perform the given tasks, as well.
+1.	What is the difference between the Internet and the World Wide Web?
+
+ The Internet is a machine(network) connected to each other. Some of the machine they run services such as email, chat, online games and so on. And we called them servers also if we asked them some question, they answered.
+
+       The Web is the collection of web sites and pages around       the world. 
+2.	Write short notes about the following:
+a.	Internet Protocol (IP)
+# An Internet Protocol (IP) address is a unique address that identifies a device on the internet or a local network.
+# Is the set of rules governing the format of data sent via the internet or local network
+# Each device has a 32-bit IP address written as four 8-bit numbers
+# There are two types of IP addresses, static for servers and dynamic for users.
+b.	Transmission Control Protocol (TCP)
+# Transmission Control Protocol (TCP) is a transport layer host to host protocol for connection-oriented communication between two computers on an IP network.
+# Uses virtual ports to create a virtual end-to-end onnection that can reuse the physical connections between two computers.
+# TCP encapsulates higher level protocol data such as HTTP and SMTP.
+c.	HyperText Transfer Protocol (HTTP)
+# HyperText Transfer Protocol (HTTP) is an encrypted version of the HTTP protocol.
+# It uses SSL or TLS to encrypt all communication between a client and a server.
+# This secure connection allows clients to safely exchange sensitive data with a server, such when performing banking activities or online shopping.
+# Secures communication over a computer network.
+3.	Launch/Open your Windows Command Prompt window or MacOS Terminal. And execute a command to display your computer’s IP Address. Take a screenshot and paste it below.
+[Screenshot showing result with IP Address]
+ 
+
+4.	Launch/open your Google Chrome browser. Type into the Address bar, the url: https://www.miu.edu/home and press [ENTER]. Open the Chrome Developer Tools window (e.g. Press function key, F12 or use the Chrome Browser’s :: menu). Open the Network tab. And take screenshots, showing excerpts of the data from the Headers, the Response and the Cookies, sub-tabs.
+Place/paste your screenshots below.
+
+ 
+
+ 
+
+ 
+ 
+5.	What is the difference between HTTP and HTTPS?
+ HTTPS is HTTP with encryption. (the data is encrypted before   sending). We can also call it 
+ HTTP is unsecured, no encryption  while HTTPS is secured
+The difference between the two protocols is that HTTPS uses TLS (SSL) to encrypt normal HTTP requests and responses. And because of that HTTPS is far more secure than HTTP.
+6.	
+ 
+
+7.	It is said that HTTP is a stateless protocol. What does it mean?
+
+It is said that HTTP is a stateless protocol. What does it mean?
+This means that a HTTP server doesn’t keep track of any state of information. The server does not store client-specific server state (application state). In other words, a server will not remember if a client has visited it before or how many times they have visited. Also, each request is executed independently, without any knowledge of the requests that were executed
+
+
