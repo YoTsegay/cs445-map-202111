@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      #test1 {
+        background: blue;
+        color: white;
+      }
+
+      .emp {
+        border-top: 1px solid #aeaeae;
+        display: table;
+        width: 100%;
+      }
+
+      .emp > div {
+        width: 49.5%;
+        display: table-cell;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p>Enter the number of employees below:</p>
+      <input type="text" id="noOfEmps" />
+      <button id="getEmps">Get employee list</button>
+      <h1>Employees List</h1>
+    </div>
+    <div id="emp-list"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.6.7/rxjs.umd.js"></script>
+    <script src="rxjs-fromevent.js"></script>
+    <script type="module">
+      const { Observable } = rxjs;
+
+      window.onload = function () {
+        document.getElementById("getEmps").onclick = function () {
+          let noOfEmps = parseInt(document.getElementById("noOfEmps").value);
+          Observable.create((observer) => {
+            fetch("https://randomuser.me/api/?results=" + noOfEmps)
+              .then((response) => response.json())
+              .then((data) => {
+                observer.next(data.results);
+                observer.complete();
+              })
+              .catch((err) => observer.error(err));
+          }).subscribe((data) => {
+            const employeeDiv = document.getElementById("emp-list");
+            employeeDiv.innerHTML = "";
+            let html = "";
+
+            data.forEach((user) => {
+              html = `
+              <div class="emp">
+                <div class="name-wrapper">
+                    <p>${user.name.first} ${user.name.last}</p>
+                </div>
+                <div class="emp-info">
+                    <h4>Location</h4>
+                    <p>${user.location.street.number} ${user.location.street.name}</p>
+                    <p>${user.location.city}, ${user.location.state} ${user.location.country} ${user.location.postcode}</p>
+                </div>
+              </div>`;
+
+              const div = document.createElement("div");
+              div.classList = "row border-top";
+              div.innerHTML = html;
+
+              employeeDiv.appendChild(div);
+            });
+          });
+        };
+      };
+    </script>
+  </body>
+</html>
