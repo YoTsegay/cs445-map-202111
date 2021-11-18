@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CityBooks Rental-Store Website</title>
+    <link rel="stylesheet" href="project.css" />
+    <style>
+
+    </style>
+  </head>
+  <body>
+    <header class="page-header">
+      <div class="logo-wrapper">
+        <p>CityBooks Rental® :::a CS445 WebApp Project</p>
+      </div>
+
+      <div class="nav-wrapper">
+        <p><a href="books.html">Catalog</a></p>
+      </div>
+
+      <div class="user-greeting"><p>Welcome, Guest</p></div>
+    </header>
+
+    <div class="page-body-wrapper">
+      <h3 id="books-page-title">Books in our Collection</h3>
+      <button class="btn btn-green" id="books-page-title"><a href="addnewbook.html">Add New Book</a></button>
+      <div class="clear-both"></div>  
+        <table id="books-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>ISBN</th>
+              <th>Book Title</th>
+              <th>Overdue Fee</th>
+              <th>Publisher</th>
+              <th>Date Published</th>
+            </tr>
+          </thead>
+          <tbody id="books-list">
+           
+          </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <div>
+            <p>O. Kalu ::: CS445-MAP</p>
+            <p>&copy; November 2021</p>
+            <div class="clear-both"></div>
+        </div>
+    </footer>
+
+    <script>
+      const APIURL = "https://elibraryrestapi.herokuapp.com/elibrary/api/book/list";
+      fetch(APIURL)
+        .then((response) => response.json())
+        .then((data) => {
+          let html = '';
+          
+            for(let bookData of data) {
+              html += '<tr>';
+              html += `<td>${bookData.bookId}</td>
+              <td>${bookData.isbn}</td>
+              <td>${bookData.title}</td>
+              <td>${bookData.overdueFee}</td>
+              <td>${bookData.publisher}</td>
+              <td>${bookData.datePublished}</td>`;
+              html+= '</tr>';
+            }
+          
+          document.getElementById("books-list").innerHTML = html;
+        })
+        .catch((err) => console.log(err));
+    </script>
+  </body>
+</html>
+
+

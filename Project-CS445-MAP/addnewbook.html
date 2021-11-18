@@ -1,0 +1,139 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CityBooks Rental-Store Website</title>
+    <link rel="stylesheet" href="project.css" />
+    <style>
+
+    </style>
+  </head>
+  <body>
+    <header class="page-header">
+      <div class="logo-wrapper">
+        <p>CityBooks Rental® :::a CS445 WebApp Project</p>
+      </div>
+
+      <div class="nav-wrapper">
+        <p><a href="books.html">Catalog</a></p>
+      </div>
+
+      <div class="user-greeting"><p>Welcome, Guest</p></div>
+    </header>
+
+    <div class="page-body-wrapper">
+      <h3 id="add-new-book-title">Add New Book</h3>
+      <p><b>Note:</b>Form fields marked with asterisk(*) are required.</p>
+
+      <form id="addNewBookForm">
+        <div class="form-field full">
+            <label>*Book Title</label>
+            <input name="title" type="text" />
+        </div>
+        <div class="half-fields-wrapper">
+            <div class="form-field half">
+                <label>*ISBN</label>
+                <input name="isbn" type="text" />
+            </div>
+            <div class="form-field half">
+                <label>*Overdue Fee per day</label>
+                <input name="overdueFee" type="number" step=".01" />
+            </div>
+            <div class="form-field half">
+                <label>*Publisher</label>
+                <input name="publisher" tpe="text" />
+            </div>
+            <div class="form-field half">
+                <label>*Date Published</label>
+                <input name="datePublished" type="date" />
+            </div>
+        </div>
+        <div class="form-field full form-footer">
+            <button id="reset-btn" class="btn btn-orange">Reset</button>
+            <button id="save-btn" class="btn btn-green">Save Book</button>
+        </div>
+      </form>
+    </div>
+
+    <footer>
+        <div>
+            <p>O. Kalu ::: CS445-MAP</p>
+            <p>&copy; November 2021</p>
+            <div class="clear-both"></div>
+        </div>
+    </footer>
+
+    <script>
+
+        document.getElementById("reset-btn").addEventListener("click", (e) => {
+            e.preventDefault();
+            for(let input of document.forms['addNewBookForm'].getElementsByTagName("input")) {
+                input.value = '';
+            }
+        });
+
+        document.getElementById("save-btn").addEventListener("click", (e) => {
+            e.preventDefault();
+
+            for(let input of document.forms['addNewBookForm'].getElementsByTagName("input")) {
+                if(input.value === '') {
+                    alert("Please fill " + input.getAttribute('name') + " field!");
+                    input.focus();
+                    return;
+                }
+            }
+
+            let bookData = new FormData(document.forms['addNewBookForm']);
+            let bookDataJSON = {
+                'title': bookData.get('title'),
+                'isbn': bookData.get('isbn'),
+                'overdueFee': bookData.get('overdueFee'),
+                'publisher': bookData.get('publisher'),
+                'datePublished': bookData.get('datePublished'),
+            };
+
+            const APIURL = "https://elibraryrestapi.herokuapp.com/elibrary/api/book/add";
+            fetch(APIURL, {
+                method: 'post',
+                body: JSON.stringify(bookDataJSON),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then((response) => {
+                    if(response.status === 200) {
+                        location.href = "books.html";
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    console.log(data);
+                })
+                .catch((err) => console.log(err));
+            });
+
+      
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

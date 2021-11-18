@@ -1,0 +1,189 @@
+
+* {
+    margin: 0;
+}
+
+
+header.page-header {
+    background-color: #e94608;
+    padding: 15px 30px;
+    color: white;
+    text-decoration: none;
+}
+header.page-header > div {
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.logo-wrapper {
+    width: 27%;
+}
+
+.nav-wrapper {
+    width: 10%;
+    padding: 0px 30px;
+    border-left: 1px solid;
+}
+
+.page-header a {
+    color: white;
+    text-decoration: none;
+}
+
+.user-greeting {
+    width: 62%;
+    text-align: right;
+}
+
+.page-body-wrapper {
+    width: 75%;
+    margin: 0 auto;
+    padding: 20px 0px;
+}
+
+h4.page-greeting {
+    margin-bottom: 20px;
+}
+
+.page-body-wrapper img {
+    width: 100%;
+}
+
+.page-body-wrapper p {
+    margin: 15px 0px;
+}
+
+footer {
+    background-color: #d5d4d4;
+    color: #555;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    padding: 10px 0px;
+    
+}
+
+footer > div {
+    width: 75%;
+    margin: 0 auto;
+}
+
+footer > div p:nth-child(1) {
+    float: left;
+}
+
+footer > div p:nth-child(2) {
+    float: right;
+}
+
+.clear-both {
+    clear:both;
+}
+
+
+/* books page styling */
+button#books-page-title {
+    float: right;
+}
+
+
+#books-table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  #books-table td, #books-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #books-table tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #books-table tr:hover {background-color: #ddd;}
+  
+  #books-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #ffffff;
+    color: black
+  }
+
+  .page-body-wrapper h3#books-page-title {
+    float: left;
+}
+
+  button#books-page-title {
+    float: right;
+}
+
+button#books-page-title a {
+    text-decoration: none;
+    color: green;
+    background: none;
+}
+
+.btn {
+    padding: 5px 10px;
+    background: none;
+    border-radius: 5px;
+}
+
+.btn-green {
+    border: 2px solid green;
+    color: green;
+}
+
+.btn-orange {
+    border: 2px solid orange;
+    color: orange;
+}
+
+/* Add new book page styling   */
+
+form#addNewBookForm {
+    width: 100%;
+}
+.form-field {
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.form-field.full {
+    width: 100%;
+}
+
+.half-fields-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-field.half {
+    width: 46%;
+    display: inline-block;
+}
+
+#addNewBookForm .form-field label {
+    display: block;
+}
+
+#addNewBookForm .form-field input {
+    width: 100%;
+    padding: 5px;
+    border-color: #e1e1e1;
+    border-style: solid;
+    border-radius: 5px;
+    line-height: 20px;
+    box-sizing: border-box;
+}
+
+input[type="date"] {
+    line-height: 18px !important;
+}
+
+.form-field.form-footer {
+    text-align: right;
+}
